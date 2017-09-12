@@ -42,7 +42,7 @@ void intConversions()
 	while (u3 > 0)
 	{
 		--u3;			//	decrement first, so that the last iteration will print 0
-		std::cout << u3 << std::endl;
+		std::cout << u3 << std::endl; 
 	}
 }
 
