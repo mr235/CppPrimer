@@ -56,13 +56,26 @@ void exercise212()
 	std::cout << i - i2 << std::endl;	// -32
 	std::cout << i - u << std::endl;		// 0
 	std::cout << u - i << std::endl;		// 0
+	std::cout << 024 << std::endl;
+}
+
+void literal()
+{
+	std::cout << "a really, really long string literal "
+		"that spans two lines" << std::endl;
+	std::cout << '\n';
+	std::cout << "\tHi!\n";
+	std::cout << "Hi \x4dO\115!\n"; // prints Hi MOM!followed by a newline
+	std::cout << '\115' << '\n';	// prints M followed by a newline
+	std::cout << "\011" << '\n';
 }
 
 int main()
 {
 	printf("Hello World\n");
 	//intConversions();
-	exercise212();
+	//exercise212();
+	literal();
 	system("pause");
     return 0;
 }
