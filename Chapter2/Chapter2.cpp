@@ -166,6 +166,43 @@ void pointers()
 	//int *pi = pd;	// error:types of pi and pd differ
 	//pi = &dval;		// error:assigning the address of a double to a pointer to int
 
+	// 空指针的3种写法,c++推荐第一种写法
+	int *p1 = nullptr;
+	int *p2 = 0;
+	int *p3 = NULL;
+}
+
+void exercises2_3_2()
+{
+	// 2.18
+	int a = 10, b = 20;
+	int *pc = &a;
+	pc = &b;
+	std::cout << "a = " << a << " b = " << b << " *pc = " << *pc << std::endl;
+	*pc = 30;
+	std::cout << "a = " << a << " b = " << b << " *pc = " << *pc << std::endl;
+	// 2.19 
+	//todo: 有啥漏的，以后再来补
+	/*
+	1.指针是对象，引用不是对象
+	2.指针声明时可以不初始化，引用声明时必须初始化
+	3.指针可以多次赋值，引用不能赋值
+	4.可以有const指针，但是没有const引用
+	5.指针可以有多级，但是引用只能是一级
+	*/
+	// 2.20	i的平方
+	int i = 42;
+	int *p1 = &i;
+	*p1 = *p1 * *p1;
+	std::cout << "i=" << i << " *p1=" << *p1 << std::endl;
+	// 2.21
+	int j = 0;
+	//double *dp = &j;	// 错误:类型不匹配
+	//int *ip = j;		// 错误:int值不能初始化指针
+	int *p = &j;
+	// 2.24
+	void *p = &i;
+	//long *lp = &i;	//错误
 }
 
 int main()
@@ -178,7 +215,8 @@ int main()
 	//identifiers();
 	//reference();
 	//exercises2_3_1();
-	pointers();
+	//pointers();
+	exercises2_3_2();
 	system("pause");
 	return 0;
 }
