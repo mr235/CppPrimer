@@ -42,7 +42,7 @@ void intConversions()
 	while (u3 > 0)
 	{
 		--u3;			//	decrement first, so that the last iteration will print 0
-		std::cout << u3 << std::endl; 
+		std::cout << u3 << std::endl;
 	}
 }
 
@@ -70,13 +70,116 @@ void literal()
 	std::cout << "\011" << '\n';
 }
 
+void initial()
+{
+	int units_sold1 = 1;
+	int units_sold2 = { 2 };
+	int units_sold3{ 3 };
+	int units_sold4{ 4 };
+	std::cout << units_sold1 << '\n';
+	std::cout << units_sold2 << '\n';
+	std::cout << units_sold3 << '\n';
+	std::cout << units_sold4 << '\n';
+}
+
+int _____B = 13;
+void identifiers()
+{
+	int _____a = 10;
+	std::cout << _____a << std::endl;
+	int _____A = 11;
+	std::cout << _____A << std::endl;
+	std::cout << _____B << std::endl;
+	int _A____B = 14;
+	std::cout << _A____B << std::endl;
+	int _ = 15;
+	std::cout << _ << std::endl;
+	double Double = 3.14;
+	std::cout << Double << std::endl;
+}
+
+void reference()
+{
+	int ival = 1024;
+	int &refVal = ival;
+	std::cout << "ival:  " << ival << " refVal: " << refVal << std::endl;
+	//int &refVal2;		// error: a reference ust e initialized
+	refVal = 2;			// assigns 2 to the oject to which refVal refers, i.e., to ival
+	std::cout << "ival:  " << ival << " refVal: " << refVal << std::endl;
+
+	int ii = refVal;	// same as ii = ival
+	std::cout << "ii:  " << ii << std::endl;
+	
+	// ok: refVal3 is bound to the object to which refVal is bound, i.e., to ival
+	int &refVal3 = refVal;
+	std::cout << "ival:  " << ival << " refVal: " << refVal << " refVal3: " << refVal3 << std::endl;
+	// initializes i from the value in the object to which refVal is bound
+	int i = refVal;		// ok:initializes i to the same value as ival
+	std::cout << "i:  " << i << std::endl;
+
+	int j = 1024, j2 = 2048;	// j and j2 are both ints
+	int &r = j, r2 = j2;		// r is a reference bound to j; r2 is an int
+	int i3 = 1024, &ri = i3;	// i3 is an int; ri is a reference bound to i3;
+	int &r3 = i3, &r4 = j2;		// both r3 and r4 are references
+
+	//int &refVal4 = 10;			// error: initializer must be an object
+	//double dval = 3.14;
+	//int &refVal5 = dval;		// error: initializer must be an int object
+}
+
+void exercises2_3_1()
+{
+	// 2.15
+	int ival = 1.01;
+	//int &rval1 = 1.01;		//错误： 引用初始化必须是对象
+	int &rval2 = ival;
+	//int &rval3;					//错误： 引用必须初始化；
+	// 2.16
+	int i = 0, &r1 = i;
+	double d = 0, &r2 = d;
+	r2 = 3.14159;
+	std::cout << r2 << std::endl;
+	r2 = r1;
+	std::cout << r2 << std::endl;
+	i = r2;
+	r1 = d;
+
+	std::cout << r1 << std::endl;
+
+	// 2.17
+	int i2, &ri = i2;
+	i2 = 5; ri = 10;
+	std::cout << i2 << " " << ri << std::endl;
+
+}
+
+void pointers()
+{
+	int ival = 42;
+	int *p = &ival;		// p holds the address of ival; p is a pointer to ival
+	std::cout << "*p:  " << *p << std::endl;
+	double dval;
+	double *pd = &dval;	// ok:initializer is the address of a double
+	double *pd2 = pd;	// ok:initializer is a pointer to double
+	std::cout << "*pd:  " << *pd << std::endl;
+
+	//int *pi = pd;	// error:types of pi and pd differ
+	//pi = &dval;		// error:assigning the address of a double to a pointer to int
+
+}
+
 int main()
 {
 	printf("Hello World\n");
 	//intConversions();
 	//exercise212();
-	literal();
+	//literal();
+	//initial();
+	//identifiers();
+	//reference();
+	//exercises2_3_1();
+	pointers();
 	system("pause");
-    return 0;
+	return 0;
 }
 
