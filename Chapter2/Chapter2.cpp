@@ -201,8 +201,18 @@ void exercises2_3_2()
 	//int *ip = j;		// 错误:int值不能初始化指针
 	int *p = &j;
 	// 2.24
-	void *p = &i;
+	void *p2 = &i;
 	//long *lp = &i;	//错误
+}
+
+void constReferences()
+{
+	const int ci = 1024;
+	const int &r1 = ci;
+	//int i = 42;
+	//r1 = i;
+	//int &r2 = ci;	// 错误：r2必须是const
+
 }
 
 int main()
@@ -216,7 +226,8 @@ int main()
 	//reference();
 	//exercises2_3_1();
 	//pointers();
-	exercises2_3_2();
+	//exercises2_3_2();
+	//constReferences();
 	system("pause");
 	return 0;
 }
